@@ -1,0 +1,42 @@
+//<script type="text/jsx">
+
+function FormRegistro() {
+
+    function guardarFormulario(datosFormulario) {
+        console.log(datosFormulario)
+    }
+
+    return (
+        <div className="px-20">
+            <h1 className="text-center font-bold text-xl my-6">Formulario de Registro</h1>
+            <Form layout="vertical" onFinish={guardarFormulario}>
+                <Item
+                    name="nombreCompleto"
+                    label="Nombre Completo"
+                    rules={
+                        [{ required: "true", message: ">>Campo Obligatorio" }]}>
+                    <Input />
+                </Item>
+                <Item
+                    name="correoElectronico"
+                    label="Correo electronico"
+                    rules={[
+                        { type: "email", message: ">>Asegurese que sea un formato de tipo EMAIL para que este campo sea valido" },
+                        { required: "true", message: ">>Campo Obligatorio" }
+                    ]}><Input /></Item>
+                <Item
+                    name="contrasenia"
+                    label="Contraseña"
+                    rules={
+                        [{ required: "true", message: ">>Campo Obligatorio" }]}><Password />
+                    </Item>
+
+                <Item className="text-center"><Button htmlType="submit">Guardar</Button></Item>
+            </Form>
+
+        </div>
+    )
+}
+
+
+//</script>
